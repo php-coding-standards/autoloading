@@ -14,9 +14,10 @@ use RuntimeException;
 
 /**
  * @class      AbstractAutoloader.
+ * @extends    ShakeSecurity.
  * @implements ShakeAutoloader.
  */
-abstract class AbstractAutoloader implements ShakeAutoloader
+abstract class AbstractAutoloader extends ShakeSecurity implements ShakeAutoloader
 {
 
     /**
