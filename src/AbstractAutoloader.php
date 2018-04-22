@@ -69,7 +69,7 @@ abstract class AbstractAutoloader extends AbstractShakeSecurity implements Shake
                 htmlspecialchars($file, ENT_QUOTES);
             ));
         } else {
-            return require($file);
+            return boolval(require($file));
         }
     }
 
