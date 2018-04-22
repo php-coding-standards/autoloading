@@ -63,14 +63,8 @@ abstract class AbstractAutoloader extends AbstractShakeSecurity implements Shake
      */
     protected function try(string $file): bool
     {
-        if (!$this->validate($file)) {
-            throw new ShakeSecurityException(
-                'The file requested is requesting a file outside the root location. To allow this please adjust the root location.'
-                htmlspecialchars($file, ENT_QUOTES);
-            ));
-        } else {
-            return boolval(require($file));
-        }
+        $file = $this->validate($file));
+        return boolval(require($file));
     }
 
 }
