@@ -89,7 +89,8 @@ abstract class AbstractAutoloader implements AutoloaderInterface
         $file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $file);
         $parts = array_filter(explode(DIRECTORY_SEPARATOR, $file), 'strlen');
         $absolutes = array();
-        foreach ($parts as $part) {
+        foreach ($parts as $part)
+        {
             if ('.' == $part)
                 continue;
             if ('..' == $part)
