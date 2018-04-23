@@ -22,9 +22,11 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @link <https://secure.php.net/manual/en/language.oop5.abstract.php>.
      *
+     * @param array $array An array of options.
+     *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    abstract protected function setOptions(array $string): bool;
+    abstract protected function setOptions(array $array): bool;
 
     /**
      * Run the autoloader.
