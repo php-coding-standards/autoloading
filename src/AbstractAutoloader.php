@@ -68,6 +68,7 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      */
     protected function try(string $file): bool
     {
+        /** @var string $file */
         $file = $this->parseFile($file));
         return (bool) require $file;
     }
