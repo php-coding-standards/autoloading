@@ -47,7 +47,8 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    public function register(array $options = array()): bool {
+    public function register(array $options = array()): bool
+    {
         if ($this->setOptions($options))
             return spl_autoload_register(array($this, 'load'), false);
         return false;
@@ -63,7 +64,8 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function try(string $file): bool {
+    protected function try(string $file): bool
+    {
         $file = $this->parseFile($file));
         return (bool) require $file;
     }
@@ -79,17 +81,18 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return string Returns the parse file.
      */
-    private function parseFile($file): string {
+    private function parseFile($file): string
+    {
         $file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $file);
         $parts = array_filter(explode(DIRECTORY_SEPARATOR, $file), 'strlen');
         $absolutes = array();
         foreach ($parts as $part) {
-            if ('.' == $part) continue;
-            if ('..' == $part) {
+            if ('.' == $part)
+                continue;
+            if ('..' == $part)
                 array_pop($absolutes);
-            } else {
+            else
                 $absolutes[] = $part;
-            }
         }
         return implode(DIRECTORY_SEPARATOR, $absolutes);
     }
