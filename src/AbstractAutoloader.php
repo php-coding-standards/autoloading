@@ -2,16 +2,17 @@
 declare(strict_types=1);
 /**
  * Shake Autoloading.
- * A better internet.
+ * Better php code equals better web applications.
  *
  * @license <https://github.com/shake-php/autoloading/blob/master/LICENSE>.
  * @link    <https://github.com/shake-php/autoloading>.
  */
 
 /**
- * @class      AbstractAutoloader.
- * @extends    AbstractShakeSecurity.
- * @implements ShakeAutoloader.
+ * @class AbstractAutoloader.
+ *
+ * This autoloading extension is active in thought but is never
+ * initialized unless needed.
  */
 abstract class AbstractAutoloader extends AbstractShakeSecurity implements ShakeAutoloader
 {
