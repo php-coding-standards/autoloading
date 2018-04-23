@@ -27,7 +27,6 @@ class Psr4Autoloading extends AbstractAutoloader
      */
     protected function setOptions(array $string): bool
     {
-        if ()
     }
 
     /**
