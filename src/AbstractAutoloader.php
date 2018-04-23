@@ -14,7 +14,7 @@ declare(strict_types=1);
  * This autoloading extension is active in thought but is never
  * initialized unless needed.
  */
-abstract class AbstractAutoloader extends AbstractShakeSecurity implements ShakeAutoloader
+abstract class AbstractAutoloader implements AutoloaderInterface
 {
 
     /**
