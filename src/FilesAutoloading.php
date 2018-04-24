@@ -46,6 +46,7 @@ class FilesAutoloading extends AbstractAutoloader
     protected function load(string $k): void
     {
         // The argument will be ignored.
+        /** @var string $file */
         foreach ($this->filesLoadData as $file)
         {
             if (!$this->try($file))
