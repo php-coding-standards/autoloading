@@ -18,15 +18,21 @@ declare(strict_types=1);
 class Psr4Autoloading extends AbstractAutoloader
 {
 
+    /** @var array $psrLoadData The psr load data. **/
+    private $psrLoadData = array();
+
     /**
      * Set the configuration options for the autoloader.
      *
      * @link <https://secure.php.net/manual/en/language.oop5.abstract.php>.
      *
+     * @param array $array An array of options.
+     *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function setOptions(array $string): bool
+    protected function setOptions(array $array): bool
     {
+        $this->psrLoadData = $array;
     }
 
     /**
@@ -38,64 +44,38 @@ class Psr4Autoloading extends AbstractAutoloader
      *
      * @return void Return nothing.
      */
-    abstract protected function load(string $k): void;
-    /**
-     * Register the autolader.
-     *
-     * @link <https://secure.php.net/manual/en/language.oop5.autoload.php>.
-     * @link <https://secure.php.net/manual/en/function.spl-autoload-register.php>.
-     *
-     * @param array $options The list of configuration options for the autoloader.
-     *
-     * @return bool Returns TRUE on success or FALSE on failure.
-     */
-    public function register(array $options = array()): bool
+    protected function load(string $k): void
     {
-        if ($this->setOptions($options))
-            return spl_autoload_register(array($this, 'load'), false);
-        return false;
-    }
-    /**
-     * Try to include the file.
-     *
-     * @link <https://secure.php.net/manual/en/function.include.php>.
-     * @link <https://secure.php.net/manual/en/function.require.php>.
-     *
-     * @param string $file The file to require.
-     *
-     * @return bool Returns TRUE on success or FALSE on failure.
-     */
-    protected function try(string $file): bool
-    {
-        /** @var string $file */
-        $file = $this->parseFile($file));
-        return (bool) require $file;
-    }
-  
-    /**
-     * Parse the file.
-     *
-     * @link <https://secure.php.net/manual/en/security.filesystem.php>.
-     * @link <https://secure.php.net/manual/en/function.realpath.php>.
-     * @link <https://secure.php.net/manual/en/function.basename.php>.
-     *
-     * @param string $file The file to parse.
-     *
-     * @return string Returns the parse file.
-     */
-    private function parseFile($file): string
-    {
-        $file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $file);
-        $parts = array_filter(explode(DIRECTORY_SEPARATOR, $file), 'strlen');
-        $absolutes = array();
-        foreach ($parts as $part) {
-            if ('.' == $part)
+        foreach ($this->psrLoadData as $monolog => $baseDir)
+        {
+            // does the class use the namespace prefix?
+            $len = strlen($monolog);
+            if (strncmp($monolog, $class, $len) !== 0)
+            {
                 continue;
-            if ('..' == $part)
-                array_pop($absolutes);
-            else
-                $absolutes[] = $part;
+            }
+            // Fetch the relative class name.
+            $relativeClass = substr($k, $len);
+            // replace the namespace prefix with the base directory, replace namespace
+            // separators with directory separators in the relative class name, append
+            // with .php
+            $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
+            if (!$this->try($file))
+            {
+                throw new RuntimeException('The file could not be loaded.');
+            }
         }
-        return implode(DIRECTORY_SEPARATOR, $absolutes);
+    }
+
+    /**
+     * Get the autoloader information.
+     *
+     * @return array An array of information from the autoloader.
+     */
+    public function getInfo(): array
+    {
+        return array(
+            'optionsPassed' => $this->psrLoadData
+        );
     }
 }
