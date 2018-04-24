@@ -26,7 +26,7 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    abstract protected function setOptions(array $array): bool;
+    abstract protected function setOptions(array $array = array()): bool;
 
     /**
      * Run the autoloader.
