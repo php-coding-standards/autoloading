@@ -9,7 +9,8 @@
         "secure-by-default",
         "elegant-coding",
         "psr-compliant",
-        "classmap"
+        "classmap",
+        "files"
     ],
     "license": "MIT",
     "authors": [
