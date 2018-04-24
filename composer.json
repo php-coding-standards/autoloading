@@ -12,7 +12,7 @@
         "classmap",
         "files"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "Nicholas English",
