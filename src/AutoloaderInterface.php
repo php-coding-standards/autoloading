@@ -15,4 +15,11 @@ declare(strict_types=1);
  */
 interface AutoloaderInterface
 {
+
+    /**
+     * Get the autoloader information.
+     *
+     * @return array An array of information from the autoloader.
+     */
+    public function getInfo(): array;
 }
