@@ -33,6 +33,7 @@ class Psr4Autoloading extends AbstractAutoloader
     protected function setOptions(array $array): bool
     {
         $this->psrLoadData = $array;
+        return true;
     }
 
     /**
@@ -46,11 +47,14 @@ class Psr4Autoloading extends AbstractAutoloader
      */
     protected function load(string $k): void
     {
+        /** @var string $monolog */
+        /** @var string $baseDir */
         foreach ($this->psrLoadData as $monolog => $baseDir)
         {
             // does the class use the namespace prefix?
+            /** @var int $len */
             $len = strlen($monolog);
-            if (strncmp($monolog, $class, $len) !== 0)
+            if (strncmp($monolog, $k, $len) !== 0)
             {
                 continue;
             }
