@@ -47,7 +47,6 @@ class Psr4Autoloading extends AbstractAutoloader
      */
     protected function load(string $k): void
     {
-        /** @var string $monolog */
         /** @var string $baseDir */
         foreach ($this->psrLoadData as $monolog => $baseDir)
         {
