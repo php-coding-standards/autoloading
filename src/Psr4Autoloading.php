@@ -30,7 +30,7 @@ class Psr4Autoloading extends AbstractAutoloader
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function setOptions(array $array): bool
+    protected function setOptions(array $array = array()): bool
     {
         $this->psrLoadData = $array;
         return true;
@@ -53,8 +53,9 @@ class Psr4Autoloading extends AbstractAutoloader
         {
             // does the class use the namespace prefix?
             /** @var int $len */
-            $len = strlen($monolog);
-            if (strncmp($monolog, $k, $len) !== 0)
+            /** @var string $monolog */
+            $len = strlen((string) $monolog);
+            if (strncmp((string) $monolog, $k, $len) !== 0)
             {
                 continue;
             }
