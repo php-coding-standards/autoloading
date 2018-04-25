@@ -49,8 +49,7 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    public function register(array $options = array()): bool
-    {
+    public function register(array $options = array()): bool {
         if ($this->setOptions($options))
             return spl_autoload_register(array($this, 'load'), false);
         // @codeCoverageIgnoreStart
@@ -68,8 +67,7 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function try(string $file): bool
-    {
+    protected function try(string $file): bool {
         /** @psalm-suppress UnresolvableInclude **/
         if (file_exists($file))
             include_once $file;
