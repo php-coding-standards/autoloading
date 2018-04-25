@@ -11,14 +11,19 @@ declare(strict_types=1);
 /**
  * @class Psr4Autoloading.
  *
+ * @link <https://www.php-fig.org/psr/psr-0/>.
  * @link <https://www.php-fig.org/psr/psr-4/>.
+ * @link <https://www.php-fig.org/psr/#deprecated>.
  *
- * Comply with the psr4 standards.
+ * Comply with the psr4 standards and there will not be
+ * a psr0 autoloader as it is deperacted.
  */
 class Psr4Autoloading extends AbstractAutoloader
 {
 
-    /** @var array $psrLoadData The psr load data. **/
+    /**
+     * @var array $psrLoadData The psr load data.
+     */
     private $psrLoadData = array();
 
     /**
@@ -30,8 +35,7 @@ class Psr4Autoloading extends AbstractAutoloader
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function setOptions(array $array = array()): bool
-    {
+    protected function setOptions(array $array = array()): bool {
         $this->psrLoadData = $array;
         return true;
     }
@@ -45,24 +49,22 @@ class Psr4Autoloading extends AbstractAutoloader
      *
      * @return void Return nothing.
      */
-    protected function load(string $k): void
-    {
-        /** @var string $baseDir */
-        foreach ($this->psrLoadData as $monolog => $baseDir)
-        {
-            /** @var int $len */
-            /** @var string $monolog */
+    protected function load(string $k): void {
+        /**
+         * @var string $baseDir
+         */
+        foreach ($this->psrLoadData as $monolog => $baseDir) {
+            /**
+             * @var int $len
+             * @var string $monolog
+             */
             $len = strlen((string) $monolog);
-            if (strncmp((string) $monolog, $k, $len) !== 0)
-            {
+            if (strncmp((string) $monolog, $k, $len) !== 0) {
                 continue;
             }
             $relativeClass = substr($k, $len);
             $file = $baseDir . DIRECTORY_SEPARATOR . str_replace('\\', '/', $relativeClass) . '.php';
-            if (!$this->try($file))
-            {
-                throw new RuntimeException('The file could not be loaded.');
-            }
+            $this->try($file);
         }
     }
 
@@ -71,8 +73,7 @@ class Psr4Autoloading extends AbstractAutoloader
      *
      * @return array An array of information from the autoloader.
      */
-    public function getInfo(): array
-    {
+    public function getInfo(): array {
         return array(
             'optionsPassed' => $this->psrLoadData
         );
