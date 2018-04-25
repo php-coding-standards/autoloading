@@ -32,7 +32,7 @@ class FilesAutoloading extends AbstractAutoloader
     {
         $this->filesLoadData = $array;
         // Skip and automatically load the files.
-        $this->load();
+        $this->load('no-data');
         return true;
     }
 
