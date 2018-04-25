@@ -49,9 +49,8 @@ class FilesAutoloading extends AbstractAutoloader
         /**
          * @var string $file
          */
-        foreach ($this->filesLoadData as $file) {
+        foreach ($this->filesLoadData as $file)
             $this->try($file);
-        }
     }
 
     /**
