@@ -53,7 +53,9 @@ abstract class AbstractAutoloader implements AutoloaderInterface
     {
         if ($this->setOptions($options))
             return spl_autoload_register(array($this, 'load'), false);
+        // @codeCoverageIgnoreStart
         return false;
+        // @codeCoverageIgnoreEnd
     }
 
     /**
