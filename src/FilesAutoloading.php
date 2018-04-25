@@ -16,7 +16,9 @@ declare(strict_types=1);
 class FilesAutoloading extends AbstractAutoloader
 {
 
-    /** @var array $filesLoadData The files load data. **/
+    /**
+     * @var array $filesLoadData The files load data.
+     */
     private $filesLoadData = array();
 
     /**
@@ -28,10 +30,8 @@ class FilesAutoloading extends AbstractAutoloader
      *
      * @return bool Returns TRUE on success or FALSE on failure.
      */
-    protected function setOptions(array $array = array()): bool
-    {
+    protected function setOptions(array $array = array()): bool {
         $this->filesLoadData = $array;
-        // Skip and automatically load the files.
         $this->load('no-data');
         return true;
     }
@@ -45,16 +45,12 @@ class FilesAutoloading extends AbstractAutoloader
      *
      * @return void Return nothing.
      */
-    protected function load(string $k): void
-    {
-        // The argument will be ignored.
-        /** @var string $file */
-        foreach ($this->filesLoadData as $file)
-        {
-            if (!$this->try($file))
-            {
-                throw new RuntimeException('The file could not be loaded.');
-            }
+    protected function load(string $k): void {
+        /**
+         * @var string $file
+         */
+        foreach ($this->filesLoadData as $file) {
+            $this->try($file);
         }
     }
 
@@ -63,10 +59,7 @@ class FilesAutoloading extends AbstractAutoloader
      *
      * @return array An array of information from the autoloader.
      */
-    public function getInfo(): array
-    {
-        return array(
-            'optionsPassed' => $this->filesLoadData
-        );
+    public function getInfo(): array {
+        return array('optionsPassed' => $this->filesLoadData);
     }
 }
