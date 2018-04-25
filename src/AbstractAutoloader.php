@@ -72,7 +72,8 @@ abstract class AbstractAutoloader implements AutoloaderInterface
     {
         $file = $this->parseFile($file);
         /** @psalm-suppress UnresolvableInclude **/
-        return (bool) require $file;
+        include $file;
+        return true;
     }
 
     /**
