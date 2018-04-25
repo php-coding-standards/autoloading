@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @link    <https://github.com/shake-php/autoloading>.
  */
 
-function Shake208781103084765443278950()
+function Shake208781103085015443278950()
 {
     return true;
 }
