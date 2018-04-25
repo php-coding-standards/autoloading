@@ -72,9 +72,7 @@ abstract class AbstractAutoloader implements AutoloaderInterface
     {
         /** @psalm-suppress UnresolvableInclude **/
         if (file_exists($file))
-        {
             include_once $file;
-        }
         return true;
     }
 }
