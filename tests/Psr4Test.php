@@ -36,5 +36,8 @@ class Psr4Test extends PHPUnit\Framework\TestCase
 
         // Return test result.
         $this->assertTrue(true);
+        
+        // Test getInfo.
+        (new Psr4Autoloading)->getInfo();
     }
 }
