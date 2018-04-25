@@ -31,6 +31,8 @@ class FilesAutoloading extends AbstractAutoloader
     protected function setOptions(array $array = array()): bool
     {
         $this->filesLoadData = $array;
+        // Skip and automatically load the files.
+        $this->load();
         return true;
     }
 
