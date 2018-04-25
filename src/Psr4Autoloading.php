@@ -74,8 +74,6 @@ class Psr4Autoloading extends AbstractAutoloader
      * @return array An array of information from the autoloader.
      */
     public function getInfo(): array {
-        return array(
-            'optionsPassed' => $this->psrLoadData
-        );
+        return array('optionsPassed' => $this->psrLoadData);
     }
 }
