@@ -23,8 +23,8 @@ class Psr4Test extends PHPUnit\Framework\TestCase
         
         // Psr4 Test Namespaces With Base Directories.
         $namespaces = array(
-            'Inisik\\Psr4Test\\' => __DIR__ . '/../bin/psr4/one',
-            'Inisik\\Psr4TestTwo\\' => __DIR__ . '/../bin/psr4/two'
+            'Inisik\\Psr4Test\\' => __DIR__ . '/../bin/psr4/1',
+            'Inisik\\Psr4TestTwo\\' => __DIR__ . '/../bin/psr4/2'
         );
         
         // Try to register it with the new options configuration.
