@@ -31,7 +31,6 @@ class Psr4Test extends PHPUnit\Framework\TestCase
         (new Psr4Autoloading)->register($namespaces);
         
         // Try to use a class.
-        $result = new Inisik\Psr4Test\Test;
         $result = new Inisik\Psr4TestTwo\Test;
 
         // Return test result.
