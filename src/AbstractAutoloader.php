@@ -70,37 +70,8 @@ abstract class AbstractAutoloader implements AutoloaderInterface
      */
     protected function try(string $file): bool
     {
-        $file = $this->parseFile($file);
         /** @psalm-suppress UnresolvableInclude **/
         include $file;
         return true;
-    }
-
-    /**
-     * Parse the file.
-     *
-     * @link <https://secure.php.net/manual/en/security.filesystem.php>.
-     * @link <https://secure.php.net/manual/en/function.realpath.php>.
-     * @link <https://secure.php.net/manual/en/function.basename.php>.
-     *
-     * @param string $file The file to parse.
-     *
-     * @return string Returns the parse file.
-     */
-    private function parseFile($file): string
-    {
-        $file = str_replace(array('/', '\\'), DIRECTORY_SEPARATOR, $file);
-        $parts = array_filter(explode(DIRECTORY_SEPARATOR, $file), 'strlen');
-        $absolutes = array();
-        foreach ($parts as $part)
-        {
-            if ('.' == $part)
-                continue;
-            if ('..' == $part)
-                array_pop($absolutes);
-            else
-                $absolutes[] = $part;
-        }
-        return implode(DIRECTORY_SEPARATOR, $absolutes);
     }
 }
