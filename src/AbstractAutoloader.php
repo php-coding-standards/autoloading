@@ -71,7 +71,10 @@ abstract class AbstractAutoloader implements AutoloaderInterface
     protected function try(string $file): bool
     {
         /** @psalm-suppress UnresolvableInclude **/
-        include $file;
+        if (file_exists($file))
+        {
+            include $file;
+        }
         return true;
     }
 }
