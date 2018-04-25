@@ -44,5 +44,11 @@ class FilesTest extends PHPUnit\Framework\TestCase
 
         // Return test result.
         $this->assertTrue(true);
+        
+        // Test getInfo.
+        (new FilesAutoloading)->getInfo();
+  
+        // Return test result.
+        $this->assertTrue(true);
     }
 }
