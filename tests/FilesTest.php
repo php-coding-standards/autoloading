@@ -32,7 +32,7 @@ class FilesTest extends PHPUnit\Framework\TestCase
         // Try to register it with the new options configuration.
         (new FilesAutoloading)->register($files);
         
-        if (!function_exists('Shake208781103084765443278950'))
+        if (!function_exists('Shake208781103085015443278950'))
         {
             $this->assertTrue(false);
         }
