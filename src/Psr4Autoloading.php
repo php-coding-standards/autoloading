@@ -50,7 +50,6 @@ class Psr4Autoloading extends AbstractAutoloader
         /** @var string $baseDir */
         foreach ($this->psrLoadData as $monolog => $baseDir)
         {
-            // does the class use the namespace prefix?
             /** @var int $len */
             /** @var string $monolog */
             $len = strlen((string) $monolog);
@@ -58,11 +57,7 @@ class Psr4Autoloading extends AbstractAutoloader
             {
                 continue;
             }
-            // Fetch the relative class name.
             $relativeClass = substr($k, $len);
-            // replace the namespace prefix with the base directory, replace namespace
-            // separators with directory separators in the relative class name, append
-            // with .php
             $file = $baseDir . str_replace('\\', '/', $relativeClass) . '.php';
             if (!$this->try($file))
             {
