@@ -28,11 +28,7 @@ class Psr4Test extends PHPUnit\Framework\TestCase
         );
         
         // Try to register it with the new options configuration.
-        $res = (new Psr4Autoloading)->register($namespaces);
-        
-        var_dump($res->getInfo());
-        
-        exit(0);
+        (new Psr4Autoloading)->register($namespaces);
         
         // Try to use a class.
         $result = new Inisik\Psr4Test\Test;
