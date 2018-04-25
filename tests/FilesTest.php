@@ -7,6 +7,10 @@ declare(strict_types=1);
  * @license <https://github.com/shake-php/autoloading/blob/master/LICENSE>.
  * @link    <https://github.com/shake-php/autoloading>.
  */
+
+/**
+ * @class FilesTest
+ */
 class FilesTest extends PHPUnit\Framework\TestCase
 {
 
@@ -27,6 +31,16 @@ class FilesTest extends PHPUnit\Framework\TestCase
         
         // Try to register it with the new options configuration.
         (new FilesAutoloading)->register($files);
+        
+        if (!function_exists('Shake208781103084765443278950'))
+        {
+            $this->assertTrue(false);
+        }
+        
+        if (!function_exists('Shake566648390099377666647733'))
+        {
+            $this->assertTrue(false);
+        }
 
         // Return test result.
         $this->assertTrue(true);
