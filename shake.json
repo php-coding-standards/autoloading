@@ -1,1 +1,32 @@
-
+{
+    "package": "shake-php/autoloading",
+    "desc": "Autoloading made simple with Shake PHP. PSR-4 Compliant.",
+    "keyword": [
+        "php72",
+        "shake-php",
+        "shake-autoloading",
+        "composer-alternative",
+        "secure-by-default",
+        "elegant-coding",
+        "psr-compliant",
+        "classmap",
+        "files"
+    ],
+    "license": "GPL-3.0",
+    "author": [
+        {
+            "name": "Nicholas English",
+            "email": "nenglish6657@gmail.com",
+            "homepage": "https://github.com/inisik",
+            "role": "Develop"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "./src"
+        ]
+    },
+    "require": {
+        "php": ">=7.2"
+    }
+}
