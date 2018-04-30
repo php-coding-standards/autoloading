@@ -11,8 +11,8 @@ declare(strict_types=1);
 namespace Inisik\ClassmapTest;
 
 /**
- * @class Test
+ * @class Test3
  */
-class Test
+class Test3
 {
 }
