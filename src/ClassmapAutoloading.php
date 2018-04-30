@@ -49,10 +49,6 @@ class ClassmapAutoloading extends AbstractAutoloader
          * @var string $baseDir
          */
         foreach ($this->classmapLoadData as $baseDir) {
-            /**
-             * @var int $len
-             * @var string $monolog
-             */
             $file = $baseDir . DIRECTORY_SEPARATOR . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $k) . '.php';
             if ($this->try($file))
                 break;
