@@ -45,6 +45,9 @@ class ClassmapAutoloading extends AbstractAutoloader
      * @return void Return nothing.
      */
     protected function load(string $k): void {
+        $replace = str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $k);
+        $parts = explode(DIRECTORY_SEPARATOR, $replace);
+        $k = end($parts);
         /**
          * @var string $baseDir
          */
