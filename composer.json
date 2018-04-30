@@ -24,6 +24,10 @@
     "autoload": {
         "classmap": [
             "./src"
+        ],
+        "files": [
+            "./bin/process.php",
+            "./bin/function_reference.php"
         ]
     },
     "require": {
