@@ -4,3 +4,8 @@
 [![Coveralls github branch](https://img.shields.io/coveralls/github/shake-php/autoloading/master.svg)](https://coveralls.io/github/shake-php/autoloading)
 [![Latest Stable Version](https://poser.pugx.org/shake-php/autoloading/v/stable)](https://packagist.org/packages/shake-php/autoloading)
 [![License](https://poser.pugx.org/shake-php/autoloading/license)](https://packagist.org/packages/shake-php/autoloading)
+
+### A list of autoloaders
+- Psr4 Autoloader
+- Classmap Autoloader
+- Files Autoloader
