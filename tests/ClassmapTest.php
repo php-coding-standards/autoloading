@@ -8,7 +8,7 @@ declare(strict_types=1);
  * @link    <https://github.com/shake-php/autoloading>.
  */
 
-class Psr4Test extends PHPUnit\Framework\TestCase
+class ClassmapTest extends PHPUnit\Framework\TestCase
 {
 
     public function testRegistry(): void
