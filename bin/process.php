@@ -11,14 +11,14 @@ declare(strict_types=1);
 namespace ShakeAutoloadingProcess239471002934583901294880124975124;
 
 function psr4(array $options = array()): void {
-    (new Psr4Autoloading)->register($options);
+    (new \Psr4Autoloading)->register($options);
 }
 
 function files(array $options = array()): viod {
-    (new FilesAutoloading)->register($options);
+    (new \FilesAutoloading)->register($options);
 }
 
 function classmap(array $options = array()): void {
-    (new ClassmapAutoloading)->register($options);
+    (new \ClassmapAutoloading)->register($options);
 }
 
