@@ -62,7 +62,7 @@ class Psr4Autoloading extends AbstractAutoloader
             if (strncmp((string) $monolog, $k, $len) !== 0)
                 continue;
             $relativeClass = substr($k, $len);
-            $file = $baseDir . DIRECTORY_SEPARATOR . str_replace('\\', '/', $relativeClass) . '.php';
+            $file = $baseDir . DIRECTORY_SEPARATOR . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $relativeClass) . '.php';
             $this->try($file);
         }
     }
