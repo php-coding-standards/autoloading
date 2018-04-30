@@ -63,7 +63,8 @@ class Psr4Autoloading extends AbstractAutoloader
                 continue;
             $relativeClass = substr($k, $len);
             $file = $baseDir . DIRECTORY_SEPARATOR . str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $relativeClass) . '.php';
-            $this->try($file);
+            if ($this->try($file))
+                break;
         }
     }
 
