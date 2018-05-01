@@ -45,4 +45,4 @@ $config = array(
 
 ```
 
-This config should follow the psr4 standards. You can view it (https://www.php-fig.org/psr/psr-4/)[here].
+This config should follow the psr4 standards. You can view it (here)[https://www.php-fig.org/psr/psr-4/].
