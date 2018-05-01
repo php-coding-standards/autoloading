@@ -30,4 +30,5 @@ Permissions of this strong copyleft license are conditioned on making available 
 ## Links
 
 - https://packagist.org/packages/shake-php/autoloading
+- https://shake-php.github.io/shake.github.io/autoloading/index.html
 - Shake webiste does not exist yet.
