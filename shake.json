@@ -28,7 +28,7 @@
     },
     "require": {
         "php": ">=7.2"
-    }
+    },
     "config": {
         "only-stable": true
     }
