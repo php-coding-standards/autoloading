@@ -52,9 +52,9 @@ This config should follow the psr4 standards. You can view it [here](https://www
 
 $config = array(
     'Acme\\Log\\Writer' => './acme-log-writer/lib/',
-    'Aura\\Web'        => '/path/to/aura-web/src/',
-    'Symfony\\Core'    => './vendor/Symfony/Core/',
-    'Zend'            => '/usr/includes/Zend/',
+    'Aura\\Web'         => '/path/to/aura-web/src/',
+    'Symfony\\Core'     => './vendor/Symfony/Core/',
+    'Zend'              => '/usr/includes/Zend/',
 );
 
 (new Psr4Autoloading)->register($config);
