@@ -5,7 +5,32 @@
 [![Latest Stable Version](https://poser.pugx.org/shake-php/autoloading/v/stable)](https://packagist.org/packages/shake-php/autoloading)
 [![License](https://poser.pugx.org/shake-php/autoloading/license)](https://packagist.org/packages/shake-php/autoloading)
 
+## Installation
+via Shake:
+> This method is not avaliable.
 
+via Composer:
+```sh
+composer require shake-php/autoloading
+```
+
+## Autoloaders
 > - Psr4 Autoloader
 > - Classmap Autoloader
 > - Files Autoloader
+
+## Psr4 Autoloading
+Using the psr4 autoloader is similiar to composers psr4 autoloader. First we should create the autoloader instance before pushing the configuration.
+
+```php
+<?php
+
+// Composer or Shake autoload.
+require_once __DIR__ . '/vendor/autoload.php';
+
+// Psr4 autoload instance.
+$psr4autoload = new Psr4Autoloading();
+
+// ...
+
+```
