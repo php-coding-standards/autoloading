@@ -34,3 +34,11 @@ $psr4autoload = new Psr4Autoloading();
 // ...
 
 ```
+After that you need to create a configuration for the autoloader. Below is what the configuration array should look like.
+```php
+
+$config = array(
+    'The monolog.'    => 'The base directory.',
+    'Another monolog' => 'Another base directory.',
+    // ... //
+);
