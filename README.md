@@ -38,8 +38,8 @@ After that you need to create a configuration for the autoloader. Below is what 
 ```php
 
 $config = array(
-    'The monolog.'    => 'The base directory.',
-    'Another monolog' => 'Another base directory.',
+    'The monolog.'     => 'The base directory.',
+    'Another monolog.' => 'Another base directory.',
     // ... //
 );
 
