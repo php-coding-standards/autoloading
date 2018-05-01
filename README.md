@@ -42,3 +42,7 @@ $config = array(
     'Another monolog' => 'Another base directory.',
     // ... //
 );
+
+```
+
+This config should follow the psr4 standards. You can view it (https://www.php-fig.org/psr/psr-4/)[here].
