@@ -45,4 +45,39 @@ $config = array(
 
 ```
 
-This config should follow the psr4 standards. You can view it [here](https://www.php-fig.org/psr/psr-4/).
+This config should follow the psr4 standards. You can view it [here](https://www.php-fig.org/psr/psr-4/). Below is an example of the configuration array. The examples were taken [here](https://www.php-fig.org/psr/psr-4/#3-examples).
+
+```php
+<?php
+
+$config = array(
+    'Acme\\Log\\Writer' => './acme-log-writer/lib/',
+    'Aura\\Web'        => '/path/to/aura-web/src/',
+    'Symfony\\Core'    => './vendor/Symfony/Core/',
+    'Zend'            => '/usr/includes/Zend/',
+);
+
+(new Psr4Autoloading)->register($config);
+
+$result1 = new Acme\Log\Writer\File_Writer;
+$result2 = new Aura\Web\Response\Status;
+$result3 = new Symfony\Core\Request;
+$result4 = new Zend\Acl;
+
+```
+
+The above is equivalent to.
+
+```php
+<?php
+
+include './acme-log-writer/lib/File_Writer.php';
+include '/path/to/aura-web/src/Response/Status.php';
+include './vendor/Symfony/Core/Request.php';
+include '/usr/includes/Zend/Acl.php';
+
+```
+
+With Psr4 it will only include it when you use it.
+
+## Classmap Autoloading
