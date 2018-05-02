@@ -8,14 +8,14 @@ declare(strict_types=1);
  * @link    <https://github.com/shake-php/autoloading>.
  */
 
-function psr4(array $options = array()): void {
+function register_psr4_autoloader(array $options = array()): void {
     (new Psr4Autoloading)->register($options);
 }
 
-function files(array $options = array()): viod {
+function register_files_autoloader(array $options = array()): viod {
     (new FilesAutoloading)->register($options);
 }
 
-function classmap(array $options = array()): void {
+function register_classmap_autoloader(array $options = array()): void {
     (new ClassmapAutoloading)->register($options);
 }
