@@ -10,7 +10,7 @@ The shake autoloader is to make autoloading of classes and files easy.
 ## Installation
 
 via Shake:
-> This method is not avaliable.
+> If you already use shake as your dependency manager it is already installed.
 
 via Composer:
 ```sh
