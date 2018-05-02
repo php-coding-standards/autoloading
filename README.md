@@ -22,7 +22,6 @@ composer require shake-php/autoloading
 > - Psr4 Autoloader
 > - Classmap Autoloader
 > - Files Autoloader
-> - Simple Autoloader
 
 ## General Public License
 
