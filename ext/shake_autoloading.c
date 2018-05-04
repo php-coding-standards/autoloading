@@ -4,6 +4,9 @@
 
 #include "php.h"
 #include "php_ini.h"
+#include "psr4_autoloading.c"
+#include "files_autoloading.c"
+#include "classmap_autoloading.c"
 #include "php_shake_autoloading.h"
 
 #define PHP_SHAKE_AUTOLOADING_VERSION "1.1.2"
@@ -38,7 +41,19 @@ zend_module_entry slobel_module_entry = {
     STANDARD_MODULE_PROPERTIES
 };
 
+#ifdef COMPILE_DL_SHAKE_AUTOLOADING
+ZEND_GET_MODULE(shake_autoloading)
+#endif
+    
+
 PHP_FUNCTION(register_psr4_autoloader)
 {
-    RETURN_STRING("This is my function", 1);
+}
+
+PHP_FUNCTION(register_files_autoloader)
+{
+}
+
+PHP_FUNCTION(register_classmap_autoloader)
+{
 }
