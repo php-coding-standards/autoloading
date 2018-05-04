@@ -1,10 +1,6 @@
 language: php
 sudo: false
 dist: trusty
-env:
-    matrix:
-        - SHAKE_AUTOLOADING_EXT=no
-        - SHAKE_AUTOLOADING_EXT=yes
 php:
     - 7.2
     - nightly
@@ -15,7 +11,13 @@ matrix:
 os:
     - windows
     - linux
-before_script: ./before_script.sh
+before_script:
+    - git clone https://github.com/phalcon/zephir
+    - phpize -v
+    - cd zephir
+    - ./install -c
+    - zephir help
+    - zephir init utils
 install:
     - travis_retry composer install --no-interaction
     - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar
