@@ -15,10 +15,12 @@ matrix:
 os:
     - windows
     - linux
-before_script:
-    - if [ "$SHAKE_AUTOLOADING_EXT" == "yes" ]; then sh -c "cd ext && phpize && ./configure && make && sudo make install"; fi
-    - if [ "$SHAKE_AUTOLOADING_EXT" == "yes" ]; then echo "extension=php_shake_autoloading.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`; fi
-install: ./install.sh
+before_script: ./before_script.sh
+install:
+    - travis_retry composer install --no-interaction
+    - wget -c -nc --retry-connrefused --tries=0 https://github.com/php-coveralls/php-coveralls/releases/download/v2.0.0/php-coveralls.phar
+    - chmod +x php-coveralls.phar
+    - php php-coveralls.phar --version
 after_success:
     - travis_retry php php-coveralls.phar -v
 before_script:
