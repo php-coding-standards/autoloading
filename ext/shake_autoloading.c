@@ -30,7 +30,7 @@ zend_module_entry slobel_module_entry = {
     STANDARD_MODULE_HEADER,
     PHP_SHAKE_AUTOLOADING_EXTENSION_NAME,
     shake_autoloading_functions,
-    PHP_MINIT(slobel_init),
+    NULL,
     NULL,
     NULL,
     NULL,
