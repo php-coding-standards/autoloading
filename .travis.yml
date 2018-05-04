@@ -11,7 +11,7 @@ matrix:
 os:
     - windows
     - linux
-before_script:
+before_install:
     - git clone https://github.com/phalcon/zephir
     - phpize -v
     - cd zephir
