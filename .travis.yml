@@ -16,7 +16,6 @@ before_install:
     - phpize -v
     - cd zephir
     - ./install -c
-    - zephir help
     - zephir init utils
 install:
     - travis_retry composer install --no-interaction
